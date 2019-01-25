@@ -301,6 +301,6 @@ export class Scenario {
     ];
 }
 
-export class ScenarioMock {
+export class ScenarioMock extends Scenario {
 
 }
