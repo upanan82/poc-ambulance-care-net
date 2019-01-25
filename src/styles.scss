@@ -1,0 +1,45 @@
+/* You can add global styles to this file, and also import other style files */
+html, body {
+    background-color: #000;
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+}
+
+// .pointer {
+// 	cursor: pointer;
+// }
+
+@font-face {
+	font-family: "PT";
+	font-style: normal;
+	font-weight: 900;
+	src: url("./assets/PT_Root_UI_Bold/PT_Root_UI_Bold.eot?") format("eot"),
+	     url("./assets/PT_Root_UI_Bold/PT_Root_UI_Bold.woff2") format("woff2"),
+	     url("./assets/PT_Root_UI_Bold/PT_Root_UI_Bold.woff") format("woff"),
+	     url("./assets/PT_Root_UI_Bold/PT_Root_UI_Bold.ttf") format("truetype"),
+	     url("./assets/PT_Root_UI_Bold/PT_Root_UI_Bold.svg") format("svg");
+}
+
+@font-face {
+	font-family: "PT";
+	font-style: normal;
+	font-weight: 600;
+	src: url("./assets/PT_Root_UI_Medium/PT_Root_UI_Medium.eot?") format("eot"),
+	     url("./assets/PT_Root_UI_Medium/PT_Root_UI_Medium.woff2") format("woff2"),
+	     url("./assets/PT_Root_UI_Medium/PT_Root_UI_Medium.woff") format("woff"),
+	     url("./assets/PT_Root_UI_Medium/PT_Root_UI_Medium.ttf") format("truetype"),
+	     url("./assets/PT_Root_UI_Medium/PT_Root_UI_Medium.svg") format("svg");
+}
+
+@font-face {
+	font-family: "PT";
+	font-style: normal;
+	font-weight: 300;
+	src: url("./assets/PT_Root_UI_Regular/PT_Root_UI_Regular.eot?") format("eot"),
+	     url("./assets/PT_Root_UI_Regular/PT_Root_UI_Regular.woff2") format("woff2"),
+	     url("./assets/PT_Root_UI_Regular/PT_Root_UI_Regular.woff") format("woff"),
+	     url("./assets/PT_Root_UI_Regular/PT_Root_UI_Regular.ttf") format("truetype"),
+	     url("./assets/PT_Root_UI_Regular/PT_Root_UI_Regular.svg") format("svg");
+}

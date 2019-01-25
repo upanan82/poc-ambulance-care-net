@@ -1,0 +1,21 @@
+<div class="er">
+  <div class="title">
+    <span>ER Type</span>
+    <button class="close" (click)="close()" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <ul>
+    <li *ngFor="let value of data index as i" [ngClass]="{'blue': value.booked}">
+      <div class="name">
+        <img [ngClass]="{'white-svg': value.booked}" src="{{value.img}}">
+        <div>
+          <p [ngClass]="{'white': value.booked}">{{value.name}}</p>
+          <span [ngClass]="{'whitely': value.booked}">{{value.booked ? 'Assigned' : 'Free'}}</span>
+        </div>
+      </div>
+      <span [ngClass]="{'white': value.booked}" (click)="onSelect(i)" class="book">{{value.booked ? 'ASSIGNED' : 'ASSIGN'}}</span>
+    </li>
+  </ul>
+  <div class="button">SHOW ASSIGNED</div>
+</div>

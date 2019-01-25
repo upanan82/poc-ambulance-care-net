@@ -1,0 +1,31 @@
+<div class="ems">
+  <div class="title">
+    <span>EMS</span>
+    <button class="close" (click)="close()" mat-icon-button>
+      <mat-icon>close</mat-icon>
+    </button>
+  </div>
+  <ul>
+    <li *ngFor="let value of data index as i" [ngClass]="{'blue': i === selectedInd}" (click)="onSelect(i)">
+      <div class="name">
+        <article class="icon" [ngClass]="{'icon-gray': value.what === 'Other', 'icon-white': !value.num, 'blink1': light && i === 1}">
+          {{value.num}}
+          <img *ngIf="!value.num" src="../../assets//img/arrow.svg">
+        </article>
+        <div>
+          <p [ngClass]="{'white': i === selectedInd}">{{value.name}}</p>
+          <span [ngClass]="{'whitely': i === selectedInd}">{{value.what}}</span>
+        </div>
+      </div>
+      <div class="time">
+        <div *ngIf="value.time">
+          <p [ngClass]="{'white': i === selectedInd}">{{value.time}}</p>
+        </div>
+        <button class="arrow" [ngClass]="{'white': i === selectedInd}" mat-icon-button>
+          <mat-icon>arrow_forward_ios</mat-icon>
+        </button>
+      </div>
+    </li>
+  </ul>
+  <div class="button">SHOW WAITING</div>
+</div>

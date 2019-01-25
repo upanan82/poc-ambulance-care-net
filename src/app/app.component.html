@@ -1,0 +1,83 @@
+<div class="header">
+    <article class="green" (click)="showS()">
+        <div class="unit">
+            <p>HR</p>
+            <span>bpm</span>
+        </div>
+        <div [ngClass]="{'blink2-g': scenario.id >= 1 && scenario.id <= 3}" class="value">{{scenario?.hr.values[scenario.hr.i]}}</div>
+    </article>
+    <article class="yellow">
+        <div class="unit">
+            <p>EtCO<sup>2</sup></p>
+            <span>kPa</span>
+        </div>
+        <div [ngClass]="{'blink2-y': false}" class="value">{{scenario?.etco.values[scenario.etco.i]}}</div>
+    </article>
+    <article class="blue">
+        <div class="unit">
+            <p>SpO<sup>2</sup></p>
+            <span>%</span>
+        </div>
+        <div [ngClass]="{'blink2-b': scenario.id <= 3 && scenario.id >= 1}" class="value">{{scenario?.spo.values[scenario.spo.i]}}</div>
+    </article>
+    <article class="orange" (click)="refresh(scenario.id)">
+        <div class="unit">
+            <p>NIBP</p>
+            <span>mmhg</span>
+        </div>
+        <div [ngClass]="{'blink2-r': scenario.id === 4}" class="value">
+            <div class="first">{{scenario?.abp.values[scenario.abp.i][0]}}</div>
+            <div class="vertical-line"></div>
+            <div class="second">{{scenario?.abp.values[scenario.abp.i][1]}}</div>
+        </div>
+    </article>
+</div>
+<div class="content">
+    <div class="numbers" *ngIf="scenario.id === 2 || scenario.id === 3">
+        <div [ngClass]="{'but-blue': selectedNum === 1}" (click)="numChange(1)" class="but pointer">1</div>
+        <div [ngClass]="{'but-blue': selectedNum !== 1}" (click)="numChange(2)" class="but pointer">2</div>
+    </div>
+    <div class="menu" [ngClass]="{'unvisible': !isShowS}">
+        <select (change)="onChange($event.target.value)">
+            <option *ngFor="let value of scenarioS index as i" value="{{i}}">{{'('+(i+1)+') - '+value.info}}</option>
+        </select>
+    </div>
+    <video [autoplay]="true" [muted]="true" [loop]="true" [controls]="false" preload="none"
+        [src]="(selectedNum === 1 ? scenario?.video_1 : scenario?.video_2 ? scenario?.video_2 : scenario?.video_1)">
+        Video not available
+    </video>
+</div>
+<footer>
+    <div class="left">
+        <div class="modal-button md pointer" [ngClass]="{'blink1': scenario.id === 7}" (click)="select('ems')">EMS</div>
+        <div class="modal-button dark-info">
+            <p>{{bottomData.name}}</p>
+            <span class="span">EMS NUMBER</span>
+        </div>
+        <div class="modal-button dark-info1">
+            <div class="pizdec p">{{bottomData.time.split(':')[0]}}<div class="blink">:</div>{{bottomData.time.split(':')[1]}}</div>
+            <span class="span">ETA</span>
+        </div>
+        <div class="modal-button dark-info2">
+            <p>{{bottomData.what}}</p>
+            <span class="span">PROTOCOL</span>
+        </div>
+    </div>
+    <div class="modal-button md pointer" (click)="select('er')">ER</div>
+</footer>
+
+
+<div class="back-wrapper" [ngClass]="{'unvisible': !isModal && !wantCloseModal}" #wrapper>
+  <fs-generic-modal-er
+    (@animationOption2.done)="animDone()"
+    [@animationOption2]="isModal && modal === 'er' ? 'open' : 'close'"
+    (closed)="close()"
+  ></fs-generic-modal-er>
+  <fs-generic-modal-ems
+    (@animationOption1.done)="animDone()"
+    [time]="scenario.id >= 7 ? '00:21' : '00:22'"
+    [light]="scenario.id === 7"
+    [@animationOption1]="isModal && modal === 'ems' ? 'open' : 'close'"
+    (closed)="close($event)"
+  ></fs-generic-modal-ems>
+</div>
