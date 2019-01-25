@@ -8,7 +8,7 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ModalErComponent } from './modal-er/modal-er.component';
 import { ModalEmsComponent } from './modal-ems/modal-ems.component';
-import Scenario from './scenarios';
+import { Scenario, ScenarioMock } from './scenarios';
 
 @NgModule({
   declarations: [
@@ -23,7 +23,7 @@ import Scenario from './scenarios';
     HttpClientModule,
     MatIconModule
   ],
-  providers: [Scenario],
+  providers: [{ provide: Scenario, useClass: ScenarioMock }],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

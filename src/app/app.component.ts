@@ -1,6 +1,6 @@
 import { ChangeDetectionStrategy, Component, HostListener, ViewChild, ElementRef,
   OnInit, ChangeDetectorRef } from '@angular/core';
-import Scenario from './scenarios';
+import { Scenario } from './scenarios';
 import { trigger, state, style, transition, animate } from '@angular/animations';
 
 @Component({

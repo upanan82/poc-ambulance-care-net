@@ -1,4 +1,4 @@
-export default class Scenario {
+export class Scenario {
     map = [
         {
             id: 0,
@@ -299,4 +299,8 @@ export default class Scenario {
             }
         }
     ];
+}
+
+export class ScenarioMock {
+
 }

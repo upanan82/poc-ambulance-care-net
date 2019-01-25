@@ -71,7 +71,7 @@
   <fs-generic-modal-er
     (@animationOption2.done)="animDone()"
     [@animationOption2]="isModal && modal === 'er' ? 'open' : 'close'"
-    (closed)="close()"
+    (closed)="close(null)"
   ></fs-generic-modal-er>
   <fs-generic-modal-ems
     (@animationOption1.done)="animDone()"
